@@ -12,9 +12,13 @@
  ****************************************************/
 
 #include <Wire.h>
-#include <avr/pgmspace.h>
+#ifndef __ARDUINO_X86__ // Arduino Galileo
+ #include <avr/pgmspace.h>
+#endif
 #include "Adafruit_MCP23017.h"
 #ifdef __AVR__
+ #define WIRE Wire
+#elif __ARDUINO_X86__ // Arduino Galileo
  #define WIRE Wire
 #else // Arduino Due
  #define WIRE Wire1

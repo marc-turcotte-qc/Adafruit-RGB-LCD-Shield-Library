@@ -22,6 +22,8 @@
 #include <Wire.h>
 #ifdef __AVR__
  #define WIRE Wire
+#elif __ARDUINO_X86__ // Arduino Galileo
+ #define WIRE Wire
 #else // Arduino Due
  #define WIRE Wire1
 #endif
